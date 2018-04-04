@@ -1,5 +1,5 @@
 # react-native-switchbutton[![npm version](https://badge.fury.io/js/react-native-switchbutton.svg)](https://badge.fury.io/js/react-native-switchbutton)
-基于android switchbutton https://github.com/scwang90/switchbutton 开发的插件，可提供类似ios的弹性刷新、加载
+一个IOS样式的android/ios平台的switch组件
 ## 第一步
 工程目录下运行 npm install --save react-native-switchbutton 或者 yarn add react-native-switchbutton(已经安装了yarn)
 ## 第二步
