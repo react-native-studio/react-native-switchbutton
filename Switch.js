@@ -7,9 +7,11 @@ import {
     findNodeHandle,
     UIManager,
     Platform,
-    Switch as SwitchIOS
+    Switch as SwitchIOS,
+    ViewPropTypes as RNViewPropTypes
 } from 'react-native';
-import {ViewPropTypes,PropTypes} from './Util'
+import PropTypes from 'prop-types';
+const ViewPropTypes = RNViewPropTypes || View.propTypes;
 const RCTSwitchButton = requireNativeComponent('RCTSwitchButton', RCTSwitchButton);
 
 class Switch extends Component {
