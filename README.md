@@ -13,6 +13,7 @@ import Switch from 'react-native-switchbutton';
 <Switch/>
 ```
 
+
 ##属性
 ```js
 View props... 
