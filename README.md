@@ -41,4 +41,4 @@ thumbTintColor ColorPropType
 
 ## 示例
 <!--![image](https://github.com/2534290808/react-native-android-danmaku/blob/master/images/Screenshot_1513176625.png)-->
-<img src="https://github.com/react-native-studio/react-native-smartrefreshlayout/blob/master/images/Screenshot_1520489605.png" width = "300"  alt="图片名称" align=center />
+<img src="https://github.com/react-native-studio/react-native-switchbutton/blob/master/1.gif" width = "300"  alt="图片名称" align=center />
