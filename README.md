@@ -6,15 +6,13 @@
 运行 react-native link react-native-switchbutton
 ## 第三部使用
 在工程中导入：
-```bash
+```js
 import Switch from 'react-native-switchbutton';
 
 //使用方法和RN官方的Switch类似，
 <Switch/>
 ```
-
-
-##属性
+## 属性
 ```js
 View props... 
 
