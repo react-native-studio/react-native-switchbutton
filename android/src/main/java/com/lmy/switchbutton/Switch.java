@@ -462,7 +462,7 @@ public class Switch extends View implements Checkable {
             postInvalidate();
             return;
         }
-        toggle(enableEffect, false);
+        //toggle(enableEffect, false);
     }
 
     @Override
