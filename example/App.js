@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import SwitchButton from "react-native-switchbutton";
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -21,18 +22,13 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  state={
+    value:true,
+  }
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <SwitchButton value={this.state.value} onValueChange={value=>this.setState({value})}/>
       </View>
     );
   }
