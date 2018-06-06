@@ -35,6 +35,10 @@ onTintColor ColorPropType
 thumbTintColor ColorPropType 
 
 开关上圆形按钮的背景颜色。
+
+tintColor ColorPropType 
+
+关闭状态时的边框颜色(iOS)或背景颜色(Android)。
 ```
 
 ## 示例
