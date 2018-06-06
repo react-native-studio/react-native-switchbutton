@@ -1,10 +1,10 @@
 # react-native-switchbutton[![npm version](https://badge.fury.io/js/react-native-switchbutton.svg)](https://badge.fury.io/js/react-native-switchbutton)
 一个IOS样式的跨平台（cross-platform）平台的switch组件
 ## 第一步
-工程目录下运行` npm install --save react-native-switchbutton` 或者` yarn add react-native-switchbutton`(已经安装了yarn)
-## 第二步
-运行 `react-native link react-native-switchbutton`
-## 第三部使用
+工程目录下运行:<br/>
+` npm install --save react-native-switchbutton`<br/>
+或者(已经安装了yarn):<br/>` yarn add react-native-switchbutton`
+## 第二部使用
 在工程中导入：
 ```js
 import Switch from 'react-native-switchbutton';
