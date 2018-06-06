@@ -20,7 +20,7 @@ export default class SwitchButton extends Component{
       value,
     }
   }
-  propTypes={
+  static propTypes={
     value:PropTypes.bool,
     onValueChange:PropTypes.func,
     onTintColor:PropTypes.string,//开启时的背景颜色

@@ -4,6 +4,7 @@ import {
     View,
     Text,
     Platform,
+    ViewPropTypes,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import SwitchButton from './src/SwitchButton';
