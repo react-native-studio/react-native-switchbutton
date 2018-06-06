@@ -1,24 +1,15 @@
-import React, {Component} from 'react';
+import React,{Component} from 'react';
 import {
     StyleSheet,
     View,
     Text,
-    requireNativeComponent,
-    findNodeHandle,
-    UIManager,
     Platform,
-    Switch as SwitchIOS,
-    ViewPropTypes as RNViewPropTypes
 } from 'react-native';
 import PropTypes from 'prop-types';
-const ViewPropTypes = RNViewPropTypes || View.propTypes;
-const RCTSwitchButton = requireNativeComponent('RCTSwitchButton', RCTSwitchButton);
+import SwitchButton from './src/SwitchButton';
 
 class Switch extends Component {
 
-    _onValueChange=(event)=>{
-        this.props.onValueChange && this.props.onValueChange(event.nativeEvent.checked)
-    }
     render() {
         if(Platform.OS==='ios'){
             return (
@@ -27,27 +18,14 @@ class Switch extends Component {
                 />
             )
         }else{
-        var props = {...this.props};
-        props.style=[styles.rctSwitchButton,this.props.style];
-        props.onSwitchButtonChange=this._onValueChange;
-        props.checkedColor=this.props.onTintColor;
-        props.buttonColor=this.props.thumbTintColor;
-        props.enabled=!this.props.disabled
-        return (
-            <RCTSwitchButton
-                {...props}
-            />
-
-        )
+            return (
+                <SwitchButton
+                   {...this.props}
+                />
+            )
         }
     }
 }
-var styles = StyleSheet.create({
-    rctSwitchButton: {
-        height: 31,
-        width: 51,
-    }
-});
 Switch.propTypes = {
     disabled:PropTypes.bool,
     value:PropTypes.bool,
