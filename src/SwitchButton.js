@@ -26,6 +26,7 @@ export default class SwitchButton extends Component{
     onTintColor:PropTypes.string,//开启时的背景颜色
     thumbTintColor:PropTypes.string,//原型按钮的背景颜色
     tintColor:PropTypes.string,//关闭时的背景颜色
+    disabled:PropTypes.bool,
   }
   //开关转换
   toggleSwitch=()=>{
@@ -84,9 +85,9 @@ export default class SwitchButton extends Component{
     }
   }
   render(){
-    let {onTintColor,tintColor,thumbTintColor} = this.props;
+    let {onTintColor,tintColor,thumbTintColor,disabled} = this.props;
     return(
-      <TouchableWithoutFeedback onPress={this.toggleSwitch}>
+      <TouchableWithoutFeedback disabled={disabled} onPress={this.toggleSwitch}>
         <Animated.View style={
           [styles.container, {backgroundColor:this.state.animatedColor.interpolate({
               inputRange: [0,0.1,1],
@@ -105,7 +106,8 @@ SwitchButton.defaultProps={
   onValueChange:()=>{},
   onTintColor:'#00cc33',//开启时的背景颜色
   thumbTintColor:"#fff",//原型按钮的背景颜色
-  tintColor:'#DDD'
+  tintColor:'#DDD',
+  disabled:false
 }
 const styles = StyleSheet.create({
   container:{
