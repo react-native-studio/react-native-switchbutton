@@ -34,6 +34,7 @@ Switch.propTypes = {
     onValueChange:PropTypes.func,
     onTintColor:PropTypes.string,
     thumbTintColor:PropTypes.string,
+    tintColor:PropTypes.string,
     ...ViewPropTypes,
 }
 export default Switch;
