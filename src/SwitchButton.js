@@ -99,7 +99,7 @@ export default class SwitchButton extends Component{
               outputRange: [tintColor,onTintColor,onTintColor],
             })}]
         }>
-          <Animated.View style={[styles.switchBtn,{transform:[{scale:this.state.scale}]}]}/>
+          <Animated.View style={[styles.switchBtn,{transform:[{scale:this.state.scale}],backgroundColor:tintColor}]}/>
           <Animated.View style={[styles.switchThumb,{transform:[{translateX:this.state.left}],backgroundColor:thumbTintColor}]}/>
         </Animated.View>
       </TouchableWithoutFeedback>
