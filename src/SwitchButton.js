@@ -13,7 +13,7 @@ export default class SwitchButton extends Component{
     super(props);
     let {onTintColor,tintColor,value}=props;
     this.state = {
-      scale: new Animated.Value(value?0:1),
+      scale: new Animated.Value(value?0.01:1),
       left: new Animated.Value(value?21:1),
       background:value?onTintColor:tintColor,
       animatedColor:new Animated.Value(value?1:0),
@@ -27,11 +27,12 @@ export default class SwitchButton extends Component{
     thumbTintColor:PropTypes.string,//原型按钮的背景颜色
     tintColor:PropTypes.string,//关闭时的背景颜色
     disabled:PropTypes.bool,
+    useNativeDriver:PropTypes.bool,
   }
   //开关转换
   toggleSwitch=()=>{
     let {value} = this.state;
-    let {onValueChange} = this.props;
+    let {onValueChange,useNativeDriver} = this.props;
     if(!value) {//处于关闭状态
       this.setState(preState=>({
         value:!preState.value,
@@ -41,14 +42,16 @@ export default class SwitchButton extends Component{
           Animated.timing(this.state.scale,{
             toValue:0.01,
             duration:375,
-            easing:Easing.bezier(0.0,0.0,0,1)
+            easing:Easing.bezier(0.0,0.0,0,1),
+            useNativeDriver,
           }),
           Animated.spring(this.state.left,{
             toValue:51-29-1,
             duration:375,
             easing:Easing.bezier(0.4,0.0,0.2,1),
             bounciness:10,
-            speed:10
+            speed:10,
+            useNativeDriver
           }),
           Animated.timing(this.state.animatedColor,{
             toValue:1,
@@ -66,14 +69,16 @@ export default class SwitchButton extends Component{
           Animated.timing(this.state.scale,{
             toValue:1,
             duration:375,
-            easing:Easing.bezier(0.4,0.0,0.2,1)
+            easing:Easing.bezier(0.4,0.0,0.2,1),
+            useNativeDriver,
           }),
           Animated.spring(this.state.left,{
             toValue:0,
             duration:375,
             easing:Easing.bezier(0.4,0.0,0.2,1),
             bounciness:10,
-            speed:10
+            speed:10,
+            useNativeDriver
           }),
           Animated.timing(this.state.animatedColor,{
             toValue:0,
@@ -85,17 +90,17 @@ export default class SwitchButton extends Component{
     }
   }
   render(){
-    let {onTintColor,tintColor,thumbTintColor,disabled} = this.props;
+    let {onTintColor,tintColor,thumbTintColor,disabled,style} = this.props;
     return(
       <TouchableWithoutFeedback disabled={disabled} onPress={this.toggleSwitch}>
         <Animated.View style={
-          [styles.container, {backgroundColor:this.state.animatedColor.interpolate({
+          [style,styles.container, {backgroundColor:this.state.animatedColor.interpolate({
               inputRange: [0,0.1,1],
               outputRange: [tintColor,onTintColor,onTintColor],
             })}]
         }>
           <Animated.View style={[styles.switchBtn,{transform:[{scale:this.state.scale}]}]}/>
-          <Animated.View style={[styles.switchThumb,{left:this.state.left,backgroundColor:thumbTintColor}]}/>
+          <Animated.View style={[styles.switchThumb,{transform:[{translateX:this.state.left}],backgroundColor:thumbTintColor}]}/>
         </Animated.View>
       </TouchableWithoutFeedback>
     )
@@ -107,7 +112,8 @@ SwitchButton.defaultProps={
   onTintColor:'#00cc33',//开启时的背景颜色
   thumbTintColor:"#fff",//原型按钮的背景颜色
   tintColor:'#DDD',
-  disabled:false
+  disabled:false,
+  useNativeDriver:false
 }
 const styles = StyleSheet.create({
   container:{
@@ -116,7 +122,7 @@ const styles = StyleSheet.create({
     borderRadius:31/2,
     flexDirection:'row',
     alignItems:'center',
-    justifyContent:'center'
+    justifyContent:'flex-start'
   },
   switchBtn:{
     height:29,
