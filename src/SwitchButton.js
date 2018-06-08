@@ -28,6 +28,7 @@ export default class SwitchButton extends Component{
     tintColor:PropTypes.string,//关闭时的背景颜色
     disabled:PropTypes.bool,
     useNativeDriver:PropTypes.bool,
+    tintColorUsage:PropTypes.oneOf(['border','background'])
   }
   //开关转换
   toggleSwitch=()=>{
@@ -46,7 +47,7 @@ export default class SwitchButton extends Component{
             useNativeDriver,
           }),
           Animated.spring(this.state.left,{
-            toValue:51-29-1,
+            toValue:21,
             duration:375,
             easing:Easing.bezier(0.4,0.0,0.2,1),
             bounciness:10,
@@ -73,7 +74,7 @@ export default class SwitchButton extends Component{
             useNativeDriver,
           }),
           Animated.spring(this.state.left,{
-            toValue:0,
+            toValue:1,
             duration:375,
             easing:Easing.bezier(0.4,0.0,0.2,1),
             bounciness:10,
@@ -90,7 +91,7 @@ export default class SwitchButton extends Component{
     }
   }
   render(){
-    let {onTintColor,tintColor,thumbTintColor,disabled,style} = this.props;
+    let {onTintColor,tintColor,thumbTintColor,disabled,style,tintColorUsage} = this.props;
     return(
       <TouchableWithoutFeedback disabled={disabled} onPress={this.toggleSwitch}>
         <Animated.View style={
@@ -99,7 +100,7 @@ export default class SwitchButton extends Component{
               outputRange: [tintColor,onTintColor,onTintColor],
             })}]
         }>
-          <Animated.View style={[styles.switchBtn,{transform:[{scale:this.state.scale}],backgroundColor:tintColor}]}/>
+          <Animated.View style={[styles.switchBtn,{transform:[{scale:this.state.scale}],backgroundColor:tintColorUsage === 'background'?tintColor:'#fff'}]}/>
           <Animated.View style={[styles.switchThumb,{transform:[{translateX:this.state.left}],backgroundColor:thumbTintColor}]}/>
         </Animated.View>
       </TouchableWithoutFeedback>
@@ -113,7 +114,8 @@ SwitchButton.defaultProps={
   thumbTintColor:"#fff",//原型按钮的背景颜色
   tintColor:'#DDD',
   disabled:false,
-  useNativeDriver:false
+  useNativeDriver:false,
+  tintColorUsage:'border'
 }
 const styles = StyleSheet.create({
   container:{
@@ -126,12 +128,13 @@ const styles = StyleSheet.create({
   },
   switchBtn:{
     height:29,
-    width:50,
+    width:49,
     backgroundColor:'#fff',
     borderRadius:29/2,
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'flex-start',
+    marginLeft:1
   },
   switchThumb:{
     height:29,
