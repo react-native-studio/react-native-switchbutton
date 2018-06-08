@@ -1,6 +1,6 @@
 {
   "name": "react-native-switchbutton",
-  "version": "0.4.3",
+  "version": "0.4.5",
   "description": "一个IOS样式的android/ios平台的switch组件",
   "main": "Switch.js",
   "scripts": {
