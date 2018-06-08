@@ -8,6 +8,7 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 import PropTypes from 'prop-types';
+import getPlatformElevation from './getPlatformElevation'
 export default class SwitchButton extends Component{
   constructor(props){
     super(props);
@@ -101,7 +102,7 @@ export default class SwitchButton extends Component{
             })}]
         }>
           <Animated.View style={[styles.switchBtn,{transform:[{scale:this.state.scale}],backgroundColor:tintColorUsage === 'background'?tintColor:'#fff'}]}/>
-          <Animated.View style={[styles.switchThumb,{transform:[{translateX:this.state.left}],backgroundColor:thumbTintColor}]}/>
+          <Animated.View style={[styles.switchThumb,{transform:[{translateX:this.state.left}],backgroundColor:thumbTintColor},getPlatformElevation(4)]}/>
         </Animated.View>
       </TouchableWithoutFeedback>
     )
