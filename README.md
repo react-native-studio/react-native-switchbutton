@@ -39,6 +39,18 @@ thumbTintColor ColorPropType
 tintColor ColorPropType 
 
 关闭状态时的边框颜色(iOS)或背景颜色(Android)。
+
+useNative bool
+
+使用RN官方提供的switch
+
+tintColorUsage string （仅在useNative为false时有效）
+
+tintColor的使用，border和background可供选择
+
+useNativeDriver （仅在useNative为false时有效）
+
+是否使用原生动画
 ```
 
 ## 示例
