@@ -44,13 +44,13 @@ useNative bool
 
 使用RN官方提供的switch
 
-tintColorUsage string （仅在useNative为false时有效）
+tintColorUsage string
 
-tintColor的使用，border和background可供选择
+tintColor的使用，border和background可供选择,仅在useNative为false时有效
 
-useNativeDriver （仅在useNative为false时有效）
+useNativeDriver
 
-是否使用原生动画
+是否使用原生动画,仅在useNative为false时有效
 ```
 
 ## 示例
